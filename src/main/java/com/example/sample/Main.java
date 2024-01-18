@@ -10,26 +10,12 @@ public class Main {
         String result = scanner.nextLine();
         String[] parts = result.split(" ");
 
+        Calculator calculator = new Calculator();
+
         long num1 = Long.parseLong(parts[0]);
         long num2 = Long.parseLong(parts[2]);
         String operator = parts[1];
-        long answer = 0;
-
-        switch(operator){
-            case "+":
-                answer = num1 + num2;
-                break;
-            case "-":
-                answer = num1 - num2;
-                break;
-            case "*":
-                answer = num1 * num2;
-                break;
-            case "/":
-                answer = num1 / num2;
-            default:
-                throw new InvalidOperatorException();
-        }
+        long answer = calculator.calculate(num1, operator, num2);
         System.out.println(answer);
     }
 }
